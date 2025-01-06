@@ -71,7 +71,7 @@ export const useStyle = () => {
       height: 47,
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
       borderColor: 'rgba(255, 255, 255, 0.2)',
-      marginBottom: 5,
+      // marginBottom: 5,
       borderRadius: 6,
     },
     textInput: {
@@ -106,6 +106,8 @@ export const useStyle = () => {
       height: 45,
       backgroundColor: Colors.gray,
       borderRadius: 6,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     signinButtonText: {
       textTransform: 'uppercase',
@@ -129,13 +131,20 @@ export const useStyle = () => {
       lineHeight: 24,
       color: Colors.primary,
     },
-    singUp: {
+    signUp: {
       fontSize: 14,
       lineHeight: 24,
       color: Colors.primary,
       fontWeight: 700,
       textTransform: 'uppercase',
       textAlign: 'center',
+    },
+    errorText: {
+      color: Colors.red,
+      fontSize: 14,
+      fontWeight: 500,
+      lineHeight: 16,
+      marginBottom: 10,
     },
   });
 

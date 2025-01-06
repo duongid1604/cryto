@@ -1,8 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
 import {useStyle} from './styles.ts';
-import BackgroundImage from './components/background.tsx';
-import LoginForm from './components/loginForm.tsx';
+import BackgroundImage from './components/Background.tsx';
+import LoginForm from './components/LoginForm.tsx';
 
 const Login = () => {
   //Hook

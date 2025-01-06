@@ -1,40 +1,49 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import CustomText from '../../../components/CustomText.tsx';
-import {useTranslation} from 'react-i18next';
 import {Icons} from '../../../assets';
 import {Colors} from '../../../constants/colors.ts';
+import {MarketDataListType, MarketSummaryType} from '../../../types/market.ts';
+import {formatPrice} from '../../../utils/formatPrice.ts';
 
 type Props = {
-  name: string;
-  price: string;
-  change: number;
+  item: MarketDataListType;
+  summary: MarketSummaryType[];
 };
 
 const CoinCard = (props: Props) => {
   // Props
-  const {name, price, change} = props;
+  const {item, summary} = props;
 
-  // Hook
-  const {t} = useTranslation();
+  // Function
+  const summaryItem = summary?.find(s => s.marketId === item.id);
 
-  //Function
   const getChange = () => {
-    if (change === 0) {
+    if (!summaryItem) {
       return {
         text: '0',
         style: styles.change,
       };
     }
 
-    return change > 0
+    const change =
+      ((Number(summaryItem.lastPrice) - Number(summaryItem.prevPrice)) /
+        Number(summaryItem.prevPrice)) *
+      100;
+
+    return change === 0
       ? {
-          text: `+${change}`,
+          text: '0',
+          style: styles.change,
+        }
+      : change > 0
+      ? {
+          text: `+${formatPrice(change.toFixed(2))}`,
           style: styles.profitText,
           icon: Icons.arrowUp,
         }
       : {
-          text: change,
+          text: formatPrice(change.toFixed(2)),
           style: styles.lostText,
           icon: Icons.arrowDown,
         };
@@ -47,17 +56,21 @@ const CoinCard = (props: Props) => {
         <Image
           style={styles.image}
           source={{
-            uri: `https://tokenize-dev.com/assets/images/currency-logos/${name}.png`,
+            uri: `https://tokenize-dev.com/assets/images/currency-logos/${item.marketCurrency.toLowerCase()}.png`,
           }}
         />
         <View style={styles.coinDescContainer}>
-          <CustomText style={styles.coin}>{t(name)}</CustomText>
-          <CustomText style={styles.coinName}>{name}</CustomText>
+          <CustomText style={styles.coin}>{item.marketCurrency}</CustomText>
+          <CustomText style={styles.coinName}>
+            {item.marketCurrencyLong}
+          </CustomText>
         </View>
       </View>
 
       <View style={styles.priceContainer}>
-        <CustomText style={styles.price}>{price}</CustomText>
+        <CustomText style={styles.price}>
+          ${summaryItem ? formatPrice(summaryItem.openPrice) : 'N/A'}
+        </CustomText>
         <View style={styles.changeContainer}>
           <CustomText style={[styles.change, getChange().style]}>
             {getChange().text}%
@@ -94,11 +107,11 @@ const styles = StyleSheet.create({
   },
   coinDescContainer: {
     marginLeft: 10,
-    gap: 10,
+    gap: 8,
   },
   priceContainer: {
     alignItems: 'flex-end',
-    gap: 10,
+    gap: 8,
   },
   changeContainer: {
     flexDirection: 'row',

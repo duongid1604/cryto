@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Dimensions, StyleSheet, View} from 'react-native';
 import CustomText from '../../../components/CustomText.tsx';
 import {useTranslation} from 'react-i18next';
 import {Colors} from '../../../constants/colors.ts';
@@ -7,18 +7,29 @@ import {Colors} from '../../../constants/colors.ts';
 type Props = {
   name: string;
   isActive: boolean;
+  length: number;
 };
+
+const {width} = Dimensions.get('window');
 
 const CoinButton = (props: Props) => {
   // Props
-  const {name, isActive} = props;
+  const {name, isActive, length} = props;
+
+  //Constant
+  const containerWidth = width / length - 10;
 
   // Hook
   const {t} = useTranslation();
 
   // Render UI
   return (
-    <View style={[styles.container, isActive && styles.activeContainer]}>
+    <View
+      style={[
+        styles.container,
+        {width: containerWidth},
+        isActive && styles.activeContainer,
+      ]}>
       <CustomText style={[styles.text, isActive && styles.activeText]}>
         {t(name)}
       </CustomText>
@@ -30,7 +41,6 @@ export default CoinButton;
 
 const styles = StyleSheet.create({
   container: {
-    width: 78,
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',

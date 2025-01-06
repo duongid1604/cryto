@@ -1,24 +1,48 @@
 import React, {useState} from 'react';
 import {useStyle} from '../styles.ts';
-import {Image, TouchableWithoutFeedback, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Image,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {Button, CheckBox, Icon, IconProps, Input} from '@ui-kitten/components';
 import {useTranslation} from 'react-i18next';
 import {Icons, Images} from '../../../assets';
 import {Colors} from '../../../constants/colors.ts';
 import CustomText from '../../../components/CustomText.tsx';
+import {login, LoginParams} from '../../../api/auth.ts';
+import {AuthContextType, useAuth} from '../../../contexts/AuthContext.tsx';
+import {useMutation} from '@tanstack/react-query';
 
 const LoginForm = () => {
-  //Hook
+  // Hook
   const {styles} = useStyle();
   const {t} = useTranslation();
+  const {login: setAccessToken} = useAuth() as AuthContextType;
 
-  //State
+  // State
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [password, setPassword] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [checked, setChecked] = useState<boolean>(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
 
-  //Function
+  // Mutation
+  const {mutate, isPending} = useMutation({
+    mutationFn: (params: LoginParams) =>
+      login({email: params.email, password: params.password}),
+    onSuccess: data => {
+      setAccessToken(data.data.accessToken);
+    },
+    onError: error => {
+      setEmailError(error.message);
+      setPasswordError(error.message);
+    },
+  });
+
+  // Function
   const toggleSecureEntry = () => {
     setSecureTextEntry(!secureTextEntry);
   };
@@ -27,7 +51,39 @@ const LoginForm = () => {
     setChecked(isChecked);
   };
 
-  //Render UI
+  const validateEmail = (value: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(value);
+  };
+
+  const validateInputs = () => {
+    const errors: {email?: string; password?: string} = {};
+    if (!email) {
+      errors.email = 'Email cannot be empty';
+    } else if (!validateEmail(email)) {
+      errors.email = 'Invalid email format';
+    }
+
+    if (!password) {
+      errors.password = 'Password cannot be empty';
+    } else if (password.length < 8) {
+      errors.password = 'Password must be at least 8 characters';
+    }
+
+    return errors;
+  };
+
+  const handleLogin = () => {
+    const errors = validateInputs();
+    setEmailError(errors.email || null);
+    setPasswordError(errors.password || null);
+
+    if (!errors.email && !errors.password) {
+      mutate({email, password});
+    }
+  };
+
+  // Render UI
   const renderIcon = (props: IconProps): React.ReactElement => (
     <TouchableWithoutFeedback onPress={toggleSecureEntry}>
       <Icon
@@ -55,9 +111,14 @@ const LoginForm = () => {
           value={email}
           placeholder="Email"
           onChangeText={nextValue => setEmail(nextValue)}
-          accessoryLeft={()=> <Image style={styles.inputIcon} source={Icons.person}/>}
+          accessoryLeft={() => (
+            <Image style={styles.inputIcon} source={Icons.person} />
+          )}
           placeholderTextColor={Colors.secondary}
         />
+        {emailError && (
+          <CustomText style={styles.errorText}>{emailError}</CustomText>
+        )}
         <Input
           style={styles.input}
           textStyle={styles.textInput}
@@ -66,9 +127,14 @@ const LoginForm = () => {
           accessoryRight={renderIcon}
           secureTextEntry={secureTextEntry}
           onChangeText={nextValue => setPassword(nextValue)}
-          accessoryLeft={()=> <Image style={styles.inputIcon} source={Icons.lock}/>}
+          accessoryLeft={() => (
+            <Image style={styles.inputIcon} source={Icons.lock} />
+          )}
           placeholderTextColor={Colors.secondary}
         />
+        {passwordError && (
+          <CustomText style={styles.errorText}>{passwordError}</CustomText>
+        )}
         <View style={styles.functionalContainer}>
           <CheckBox
             checked={checked}
@@ -86,19 +152,23 @@ const LoginForm = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button style={styles.signinButton}>
-          {() => (
-            <CustomText style={styles.signinButtonText}>
-              {t('signin')}
-            </CustomText>
-          )}
+        <Button style={styles.signinButton} onPress={handleLogin}>
+          {() =>
+            isPending ? (
+              <ActivityIndicator size="small" color={Colors.primary} />
+            ) : (
+              <CustomText style={styles.signinButtonText}>
+                {t('signin')}
+              </CustomText>
+            )
+          }
         </Button>
 
         <View style={styles.dontHaveAccount}>
           <CustomText style={styles.dontHaveAccountText}>
             {t('dont_have_account')}
           </CustomText>
-          <CustomText style={styles.singUp}>{t('signup')}</CustomText>
+          <CustomText style={styles.signUp}>{t('signup')}</CustomText>
         </View>
       </View>
     </View>

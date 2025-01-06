@@ -29,7 +29,11 @@ export const useStyle = () => {
     coinList: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-    }
+      marginBottom: 10,
+    },
+    list: {
+      backgroundColor: 'transparent',
+    },
   });
 
   return {styles};

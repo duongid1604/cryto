@@ -1,49 +1,132 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState, useCallback} from 'react';
 import {useStyle} from './styles.ts';
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity, View, RefreshControl} from 'react-native';
 import CustomText from '../../components/CustomText.tsx';
 import {Icons} from '../../assets';
 import CoinButton from './components/CoinButton.tsx';
 import {List} from '@ui-kitten/components';
 import CoinCard from './components/CoinCard.tsx';
-
-const coins = ['btc', 'eth', 'sgd', 'usd'];
-const dummyCoins = [
-  {id: '1', name: 'btc', price: '$3,535.24', change: 0.14},
-  {id: '2', name: 'eth', price: '$1,200.50', change: -0.50},
-  {id: '4', name: 'usd', price: '$1.00', change: 0.00},
-];
+import {useQuery, useQueryClient} from '@tanstack/react-query';
+import {QueryKeys} from '../../api/queryKeys.ts';
+import {getMarkets, getMarketSummaries} from '../../api/market.ts';
+import {AuthContextType, useAuth} from '../../contexts/AuthContext.tsx';
+import {MarketDataListType, MarketDataType} from '../../types/market.ts';
+import Skeleton from '../../components/Skeleton.tsx';
 
 const Market = () => {
-  //Hook
+  // Hook
   const {styles} = useStyle();
+  const queryClient = useQueryClient();
 
-  //State
-  const [activeCoin, setActiveCoin] = useState<string>(coins[0]);
+  // State
+  const [activeCoin, setActiveCoin] = useState<string | undefined>(undefined);
+  const [refreshing, setRefreshing] = useState(false);
+  const {logout} = useAuth() as AuthContextType;
 
-  //Render UI
+  // Life cycle
+  const {data: marketData, isPending: marketDataLoading} = useQuery({
+    queryKey: [QueryKeys.Markets],
+    queryFn: async () => {
+      const res = await getMarkets();
+      setActiveCoin(res.data[0].title);
+
+      return {
+        coinList: res.data.map((coin: MarketDataType) => coin.title),
+        data: res.data,
+      };
+    },
+  });
+
+  const {data: summariesData, isPending: summariesLoading} = useQuery({
+    queryKey: [QueryKeys.MarketSummaries],
+    queryFn: async () => {
+      const res = await getMarketSummaries();
+
+      return res.data;
+    },
+  });
+
+  const filteredData = useMemo(() => {
+    return (
+      marketData?.data?.find(
+        (coin: MarketDataType) => coin.title === activeCoin,
+      )?.list || []
+    );
+  }, [activeCoin, marketData]);
+
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await queryClient.invalidateQueries({queryKey: [QueryKeys.Markets]});
+    await queryClient.invalidateQueries({
+      queryKey: [QueryKeys.MarketSummaries],
+    });
+    setRefreshing(false);
+  }, [queryClient]);
+
+  // Render UI
+  const _renderCoinList = useMemo(() => {
+    if (marketDataLoading) {
+      return <Skeleton height={32} />;
+    }
+
+    return marketData?.coinList?.map((coin: string) => (
+      <TouchableOpacity key={coin} onPress={() => setActiveCoin(coin)}>
+        <CoinButton
+          name={coin}
+          isActive={activeCoin === coin}
+          length={marketData?.coinList?.length}
+        />
+      </TouchableOpacity>
+    ));
+  }, [activeCoin, marketData?.coinList, marketDataLoading]);
+
+  const _renderList = useMemo(() => {
+    if (marketDataLoading && summariesLoading) {
+      return (
+        <List
+          style={styles.list}
+          data={Array.from({length: 10})}
+          keyExtractor={(_, index) => index.toString()}
+          renderItem={() => <Skeleton height={74} />}
+        />
+      );
+    }
+
+    return (
+      <List
+        style={styles.list}
+        data={filteredData}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({item}: {item: MarketDataListType}) => (
+          <CoinCard item={item} summary={summariesData} />
+        )}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      />
+    );
+  }, [
+    marketDataLoading,
+    summariesLoading,
+    styles.list,
+    filteredData,
+    summariesData,
+    refreshing,
+    onRefresh,
+  ]);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <CustomText style={styles.marketText}>Markets</CustomText>
-        <Image style={styles.searchIcon} source={Icons.search} />
+        <TouchableOpacity onPress={() => logout()}>
+          <Image style={styles.searchIcon} source={Icons.search} />
+        </TouchableOpacity>
       </View>
 
-      <View style={styles.coinList}>
-        {coins.map(coin => (
-          <TouchableOpacity key={coin} onPress={() => setActiveCoin(coin)}>
-            <CoinButton name={coin} isActive={activeCoin === coin} />
-          </TouchableOpacity>
-        ))}
-      </View>
+      <View style={styles.coinList}>{_renderCoinList}</View>
 
-      <List
-        data={dummyCoins}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <CoinCard name={item.name} price={item.price} change={item.change} />
-        )}
-      />
+      {_renderList}
     </View>
   );
 };
