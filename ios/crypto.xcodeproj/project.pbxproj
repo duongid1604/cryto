@@ -14,14 +14,14 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		19ACFA4238F84838A8C0712A /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3A6EF19B7F74F8986A87F9B /* Roboto-Italic.ttf */; };
-		1D00FA3EFABB6F8E8C9F91FA /* libPods-crypto-cryptoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36AA1479E3A5E81CFCC9E907 /* libPods-crypto-cryptoTests.a */; };
 		297CA6631777413B89AEB46D /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F979449108B24EBF8EE5C553 /* Roboto-LightItalic.ttf */; };
 		3E2192BCB2FF4273A6F5023A /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0305CD25B0A4C0CB2EE45E4 /* Roboto-MediumItalic.ttf */; };
 		42F2C4F388A94CC9AD0E77FA /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94B2335158014C2BBCBD829E /* Roboto-Regular.ttf */; };
+		4B6A756F881AAA4DCBCD1F13 /* libPods-crypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4308E2B945E99CD845C6C1B8 /* libPods-crypto.a */; };
+		4E03A6ED423F26971A0D1192 /* libPods-crypto-cryptoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82477FC661A968987C080B /* libPods-crypto-cryptoTests.a */; };
 		4EB30241ED564418B4A2F006 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E9537377E80452CBC64990C /* Roboto-Bold.ttf */; };
 		78B2E492E1194E65A70696E1 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15ECA31D8A9B4F1CBD94DC63 /* Roboto-Thin.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9F5F32BD5440EC7AA62D99B9 /* libPods-crypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605E9D80BA51A288C537E192 /* libPods-crypto.a */; };
 		A5C760C8E357418EADF53BBD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 962DA2273BD7418D82C8553C /* Roboto-Black.ttf */; };
 		BA15DDDF7C77420685D2B045 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC05DEE82DA4DBD956554AB /* Roboto-ThinItalic.ttf */; };
 		BA7A88CE5E5E4A37829F517C /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED1BF5BF72404D8C8B9FE0F8 /* Roboto-Light.ttf */; };
@@ -44,6 +44,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* cryptoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cryptoTests.m; sourceTree = "<group>"; };
 		055219349E2440FC8EF69063 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BlackItalic.ttf"; path = "../src/assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		08137F118C5451575BA28584 /* Pods-crypto-cryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto-cryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = crypto/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = crypto/AppDelegate.mm; sourceTree = "<group>"; };
@@ -51,21 +52,20 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = crypto/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = crypto/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = crypto/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		15E4CF0373783E65EF684052 /* Pods-crypto-cryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto-cryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		15ECA31D8A9B4F1CBD94DC63 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Thin.ttf"; path = "../src/assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
-		36AA1479E3A5E81CFCC9E907 /* libPods-crypto-cryptoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-crypto-cryptoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC05DEE82DA4DBD956554AB /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-ThinItalic.ttf"; path = "../src/assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
-		605E9D80BA51A288C537E192 /* libPods-crypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-crypto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		62FD06D450BCF4256EC06F14 /* Pods-crypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto.release.xcconfig"; path = "Target Support Files/Pods-crypto/Pods-crypto.release.xcconfig"; sourceTree = "<group>"; };
-		6E1AD339AEE409AD194432E3 /* Pods-crypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto.debug.xcconfig"; path = "Target Support Files/Pods-crypto/Pods-crypto.debug.xcconfig"; sourceTree = "<group>"; };
+		4308E2B945E99CD845C6C1B8 /* libPods-crypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-crypto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E4198DF3EF4C10ACC37644C /* Pods-crypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto.debug.xcconfig"; path = "Target Support Files/Pods-crypto/Pods-crypto.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = crypto/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8FD5182F664307179DC88098 /* Pods-crypto-cryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto-cryptoTests.release.xcconfig"; path = "Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests.release.xcconfig"; sourceTree = "<group>"; };
+		82DCC9EF3F5E45D54CE68F7C /* Pods-crypto-cryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto-cryptoTests.release.xcconfig"; path = "Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests.release.xcconfig"; sourceTree = "<group>"; };
 		94B2335158014C2BBCBD829E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		962DA2273BD7418D82C8553C /* Roboto-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Black.ttf"; path = "../src/assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		9E9537377E80452CBC64990C /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9FF5B5D5B403423DB3316C77 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldItalic.ttf"; path = "../src/assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		AFE4BD70BBF14A7786706FF5 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../src/assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		B3A6EF19B7F74F8986A87F9B /* Roboto-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Italic.ttf"; path = "../src/assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		CE82477FC661A968987C080B /* libPods-crypto-cryptoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-crypto-cryptoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC65DBCA692CDC3A9B375C89 /* Pods-crypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto.release.xcconfig"; path = "Target Support Files/Pods-crypto/Pods-crypto.release.xcconfig"; sourceTree = "<group>"; };
 		E0305CD25B0A4C0CB2EE45E4 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-MediumItalic.ttf"; path = "../src/assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
 		ED1BF5BF72404D8C8B9FE0F8 /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../src/assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D00FA3EFABB6F8E8C9F91FA /* libPods-crypto-cryptoTests.a in Frameworks */,
+				4E03A6ED423F26971A0D1192 /* libPods-crypto-cryptoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F5F32BD5440EC7AA62D99B9 /* libPods-crypto.a in Frameworks */,
+				4B6A756F881AAA4DCBCD1F13 /* libPods-crypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,8 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				605E9D80BA51A288C537E192 /* libPods-crypto.a */,
-				36AA1479E3A5E81CFCC9E907 /* libPods-crypto-cryptoTests.a */,
+				4308E2B945E99CD845C6C1B8 /* libPods-crypto.a */,
+				CE82477FC661A968987C080B /* libPods-crypto-cryptoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,10 +188,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6E1AD339AEE409AD194432E3 /* Pods-crypto.debug.xcconfig */,
-				62FD06D450BCF4256EC06F14 /* Pods-crypto.release.xcconfig */,
-				15E4CF0373783E65EF684052 /* Pods-crypto-cryptoTests.debug.xcconfig */,
-				8FD5182F664307179DC88098 /* Pods-crypto-cryptoTests.release.xcconfig */,
+				6E4198DF3EF4C10ACC37644C /* Pods-crypto.debug.xcconfig */,
+				DC65DBCA692CDC3A9B375C89 /* Pods-crypto.release.xcconfig */,
+				08137F118C5451575BA28584 /* Pods-crypto-cryptoTests.debug.xcconfig */,
+				82DCC9EF3F5E45D54CE68F7C /* Pods-crypto-cryptoTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -203,12 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "cryptoTests" */;
 			buildPhases = (
-				4FB44F5AB1EFF411DCD32C30 /* [CP] Check Pods Manifest.lock */,
+				0594A88C69DD89E136235106 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				39326E2D1C2B1B66C3C6640A /* [CP] Embed Pods Frameworks */,
-				3D3CE20976A1F6DA970C678F /* [CP] Copy Pods Resources */,
+				9E98C493F90206F8F3962AF6 /* [CP] Embed Pods Frameworks */,
+				544F5FC78A51A98B2113107E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,13 +224,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "crypto" */;
 			buildPhases = (
-				8AD7FA69FF27CDE12F6F7FCC /* [CP] Check Pods Manifest.lock */,
+				E1CF68B76E4E339C800DBB92 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				279C3122E13F21B2AD355170 /* [CP] Embed Pods Frameworks */,
-				BD179289FB1CFFB3E39A5BE7 /* [CP] Copy Pods Resources */,
+				D79C5E0E3F4D8E273DDB3AFE /* [CP] Embed Pods Frameworks */,
+				35B136DF4B456BFE5290C0D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,58 +326,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		279C3122E13F21B2AD355170 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		39326E2D1C2B1B66C3C6640A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3D3CE20976A1F6DA970C678F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4FB44F5AB1EFF411DCD32C30 /* [CP] Check Pods Manifest.lock */ = {
+		0594A88C69DD89E136235106 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -399,7 +348,75 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8AD7FA69FF27CDE12F6F7FCC /* [CP] Check Pods Manifest.lock */ = {
+		35B136DF4B456BFE5290C0D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		544F5FC78A51A98B2113107E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E98C493F90206F8F3962AF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D79C5E0E3F4D8E273DDB3AFE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1CF68B76E4E339C800DBB92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,23 +436,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BD179289FB1CFFB3E39A5BE7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto/Pods-crypto-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -471,7 +471,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15E4CF0373783E65EF684052 /* Pods-crypto-cryptoTests.debug.xcconfig */;
+			baseConfigurationReference = 08137F118C5451575BA28584 /* Pods-crypto-cryptoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -498,7 +498,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FD5182F664307179DC88098 /* Pods-crypto-cryptoTests.release.xcconfig */;
+			baseConfigurationReference = 82DCC9EF3F5E45D54CE68F7C /* Pods-crypto-cryptoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -522,7 +522,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E1AD339AEE409AD194432E3 /* Pods-crypto.debug.xcconfig */;
+			baseConfigurationReference = 6E4198DF3EF4C10ACC37644C /* Pods-crypto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -550,7 +550,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62FD06D450BCF4256EC06F14 /* Pods-crypto.release.xcconfig */;
+			baseConfigurationReference = DC65DBCA692CDC3A9B375C89 /* Pods-crypto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

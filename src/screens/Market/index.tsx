@@ -9,20 +9,20 @@ import CoinCard from './components/CoinCard.tsx';
 import {useQuery, useQueryClient} from '@tanstack/react-query';
 import {QueryKeys} from '../../api/queryKeys.ts';
 import {getMarkets, getMarketSummaries} from '../../api/market.ts';
-import {AuthContextType, useAuth} from '../../contexts/AuthContext.tsx';
 import {MarketDataListType, MarketDataType} from '../../types/market.ts';
 import Skeleton from '../../components/Skeleton.tsx';
+import {useTranslation} from 'react-i18next';
 
 const Market = () => {
   // Hook
   const {styles} = useStyle();
   const queryClient = useQueryClient();
   const listRef = useRef<List>(null);
+  const {t} = useTranslation();
 
   // State
   const [activeCoin, setActiveCoin] = useState<string | undefined>(undefined);
   const [refreshing, setRefreshing] = useState(false);
-  const {logout} = useAuth() as AuthContextType;
 
   // Life cycle
   const {data: marketData, isPending: marketDataLoading} = useQuery({
@@ -110,7 +110,11 @@ const Market = () => {
           <CoinCard item={item} summary={summariesData} />
         )}
         refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          <RefreshControl
+            testID="refresh-control"
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
         }
       />
     );
@@ -127,8 +131,10 @@ const Market = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <CustomText style={styles.marketText}>Markets</CustomText>
-        <TouchableOpacity onPress={() => logout()}>
+        <CustomText style={styles.marketText} testID="markets-text">
+          {t('markets')}
+        </CustomText>
+        <TouchableOpacity>
           <Image style={styles.searchIcon} source={Icons.search} />
         </TouchableOpacity>
       </View>

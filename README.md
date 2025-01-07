@@ -1,79 +1,130 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Project Name: Crypto
 
-# Getting Started
+## Overview
+Crypto is a React Native application designed to deliver a seamless and responsive experience for users. This document explains the project's code structure, tech stack, and the purpose of its key components.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+---
 
-## Step 1: Start the Metro Server
+## Tech Stack
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### Core Technologies:
+- **React Native (v0.76.5)**: Used for building the mobile application.
+- **React (v18.3.1)**: Core library for building UI components.
+- **TypeScript (v5.0.4)**: Enhances code maintainability and developer productivity with static typing.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### State Management:
+- **@tanstack/react-query**: For efficient and simplified server-state management.
+- **React Context API**: For managing global state (contexts).
 
-```bash
-# using npm
-npm start
+### Navigation:
+- **React Navigation**:
+   - `@react-navigation/native`
+   - `@react-navigation/bottom-tabs`
+   - `react-native-screens`
 
-# OR using Yarn
-yarn start
+### Networking:
+- **Axios**: For HTTP requests and API communication.
+
+### UI & Theming:
+- **@eva-design/eva** and **@ui-kitten/components**: For building visually appealing UI components with theming support.
+- **react-native-reanimated**: For animations.
+
+### Localization:
+- **i18next** and **react-i18next**: For supporting multiple languages.
+
+### Testing:
+- **Jest**: For unit testing.
+- **@testing-library/react-native**: For component testing in React Native.
+
+---
+
+## Project Structure
+
+### Folder Structure:
+```
+crypto/
+├── .bundle/            # Generated build files
+├── .vscode/            # Editor configurations
+├── android/            # Android platform-specific files
+├── ios/                # iOS platform-specific files
+├── node_modules/       # Installed npm packages
+├── src/                # Main source folder
+│   ├── api/            # API service and utility files
+│   ├── assets/         # Static assets (images, fonts, etc.)
+│   ├── components/     # Reusable UI components
+│   ├── constants/      # App-wide constants
+│   ├── contexts/       # React Context API for global state management
+│   ├── locales/        # Localization files for i18n
+│   ├── navigation/     # Navigation configuration
+│   ├── screens/        # App screens and their components/styles
+│   │   ├── Home/       # Home screen folder
+│   │   ├── Login/      # Login screen folder
+│   │   │   ├── __tests__/    # Unit tests for the screen
+│   │   │   ├── components/  # Sub-components for Login
+│   │   │   ├── index.tsx    # Login screen entry file
+│   │   │   └── styles.ts    # Login screen styles
+│   │   ├── Market/     # Market screen folder
+│   │   ├── More/       # More screen folder
+│   │   ├── Portfolio/  # Portfolio screen folder
+│   │   ├── SplashScreen/ # Splash Screen folder
+│   │   ├── Wallet/     # Wallet screen folder
+│   ├── types/          # TypeScript types and interfaces
+│   ├── utils/          # Utility functions/helpers
+├── vendor/             # Third-party custom modules
+├── .eslintrc.js        # ESLint configuration
+├── .prettierrc.js      # Prettier configuration
+├── .gitignore          # Git ignore rules
+├── app.json            # App-wide configuration file
 ```
 
-## Step 2: Start your Application
+### Explanation of Key Folders:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+1. **`api/`**:
+   - Contains API service files to centralize network requests.
 
-### For Android
+2. **`assets/`**:
+   - Stores static resources like images and fonts.
 
-```bash
-# using npm
-npm run android
+3. **`components/`**:
+   - Reusable UI components that can be shared across screens.
 
-# OR using Yarn
-yarn android
-```
+4. **`contexts/`**:
+   - Houses context providers for managing global state using React Context API.
 
-### For iOS
+5. **`locales/`**:
+   - Localization files (e.g., JSON files) for supporting multiple languages using `i18next`.
 
-```bash
-# using npm
-npm run ios
+6. **`navigation/`**:
+   - Configuration for app navigation, using `react-navigation`.
 
-# OR using Yarn
-yarn ios
-```
+7. **`screens/`**:
+   - Organized by feature or screen. Each folder typically includes:
+      - `index.tsx`: Main component for the screen.
+      - `styles.ts`: Style definitions.
+      - `components/`: Sub-components specific to the screen.
+      - `__tests__/`: Unit tests for the screen.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+8. **`types/`**:
+   - Centralized TypeScript type definitions and interfaces.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+9. **`utils/`**:
+   - Helper functions that can be used across the app.
 
-## Step 3: Modifying your App
+---
 
-Now that you have successfully run the app, let's modify it.
+## Available Scripts
+- `yarn start`: Start the Metro bundler.
+- `yarn android`: Run the app on Android.
+- `yarn ios`: Run the app on iOS.
+- `yarn lint`: Check for linting errors.
+- `yarn test`: Run unit tests.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+---
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## License
+This project is licensed under the [MIT License](LICENSE).
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Contact
+For any inquiries or support, contact duong16042000@gmail.com.

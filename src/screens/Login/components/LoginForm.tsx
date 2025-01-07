@@ -117,7 +117,9 @@ const LoginForm = () => {
           placeholderTextColor={Colors.secondary}
         />
         {emailError && (
-          <CustomText style={styles.errorText}>{emailError}</CustomText>
+          <CustomText style={styles.errorText} testID="error-text">
+            {emailError}
+          </CustomText>
         )}
         <Input
           style={styles.input}
@@ -152,7 +154,10 @@ const LoginForm = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button style={styles.signinButton} onPress={handleLogin}>
+        <Button
+          style={styles.signinButton}
+          onPress={handleLogin}
+          testID="signin-button">
           {() =>
             isPending ? (
               <ActivityIndicator size="small" color={Colors.primary} />

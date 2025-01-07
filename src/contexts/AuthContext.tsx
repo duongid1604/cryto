@@ -18,7 +18,7 @@ export type AuthContextType = {
 
 export const localAccessToken = 'accessToken';
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({children}: AuthProviderProps) => {
   const [accessToken, setAccessToken] = useState<string | null>(null);
