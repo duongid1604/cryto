@@ -4,7 +4,7 @@ export const Images = {
   login3: require('./images/img_login3.png'),
   login4: require('./images/img_login4.png'),
   login5: require('./images/img_login5.png'),
-  login6: require('./images/img_login6.png'),
+  login6: require('./images/img_login1.png'),
   logo: require('./images/img_logo.png'),
 };
 

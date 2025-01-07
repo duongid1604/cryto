@@ -7,31 +7,38 @@ export const useStyle = () => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      position: 'relative',
+      backgroundColor: Colors.purple,
     },
     //Background
     loginBackground: {
       position: 'absolute',
       width: width,
       height: height,
-      resizeMode: 'cover',
     },
     loginBg1: {
       zIndex: 1,
+      top: 40,
+      resizeMode: 'stretch',
     },
     loginBg2: {
-      zIndex: 4,
+      zIndex: 2,
+      resizeMode: 'stretch',
+      top: 120,
     },
     loginBg3: {
       zIndex: 3,
+      resizeMode: 'contain',
+      top: 280,
     },
     loginBg4: {
-      zIndex: 2,
+      zIndex: 1,
+      resizeMode: 'contain',
+      top: 80,
     },
     loginBg5: {
-      zIndex: 4,
-      height: 500,
-      bottom: 0,
+      zIndex: 0,
+      left: -20,
+      resizeMode: 'stretch',
     },
 
     //Login form

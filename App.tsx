@@ -5,7 +5,7 @@ import './src/locales/i18n.ts';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {AuthProvider} from './src/contexts/AuthContext.tsx';
-import AppNavigator from './src/Navigation';
+import AppNavigator from './src/navigation';
 
 function App(): React.JSX.Element {
   //Hook

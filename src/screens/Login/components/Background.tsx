@@ -30,7 +30,6 @@ const BackgroundImage = () => {
         source={Images.login5}
         style={[styles.loginBackground, styles.loginBg5]}
       />
-      <Image source={Images.logo} style={styles.logo} />
     </>
   );
 };
