@@ -1,6 +1,6 @@
-import React, {useMemo, useState, useCallback} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useStyle} from './styles.ts';
-import {Image, TouchableOpacity, View, RefreshControl} from 'react-native';
+import {Image, RefreshControl, TouchableOpacity, View} from 'react-native';
 import CustomText from '../../components/CustomText.tsx';
 import {Icons} from '../../assets';
 import CoinButton from './components/CoinButton.tsx';
@@ -17,6 +17,7 @@ const Market = () => {
   // Hook
   const {styles} = useStyle();
   const queryClient = useQueryClient();
+  const listRef = useRef<List>(null);
 
   // State
   const [activeCoin, setActiveCoin] = useState<string | undefined>(undefined);
@@ -63,6 +64,12 @@ const Market = () => {
     setRefreshing(false);
   }, [queryClient]);
 
+  useEffect(() => {
+    if (listRef.current) {
+      listRef.current.scrollToOffset({offset: 0, animated: true});
+    }
+  }, [activeCoin]);
+
   // Render UI
   const _renderCoinList = useMemo(() => {
     if (marketDataLoading) {
@@ -84,6 +91,7 @@ const Market = () => {
     if (marketDataLoading && summariesLoading) {
       return (
         <List
+          ref={listRef}
           style={styles.list}
           data={Array.from({length: 10})}
           keyExtractor={(_, index) => index.toString()}
@@ -94,6 +102,7 @@ const Market = () => {
 
     return (
       <List
+        ref={listRef}
         style={styles.list}
         data={filteredData}
         keyExtractor={item => item.id.toString()}
